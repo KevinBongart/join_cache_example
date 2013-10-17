@@ -2,7 +2,7 @@
 
 Just an example app for the [join_cache gem](https://github.com/KevinBongart/join_cache).
 
-It show how join_cache can make `has_and_belong_to_many` and `has_many :through` associations faster using cache:
+It shows how join_cache can make `has_and_belong_to_many` and `has_many :through` associations faster using cache:
 
 ```ruby
 class Assembly < ActiveRecord::Base
