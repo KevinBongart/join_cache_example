@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+ActiveRecord::Base.transaction do
+  1000.times do |i|
+    Assembly.create(name: "Assembly #{i}")
+    Part.create(part_number: "#{i}")
+    Physician.create(name: "Physician #{i}")
+    Patient.create(name: "Patient #{i}")
+  end
+end
+
+ActiveRecord::Base.transaction do
+  Part.find_each do |part|
+    part.assemblies = Assembly.all.sample(rand(100..1000))
+  end
+
+  Patient.find_each do |patient|
+    patient.physicians = Physician.all.sample(rand(100..1000))
+  end
+end
