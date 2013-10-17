@@ -7,12 +7,10 @@ ActiveRecord::Base.transaction do
   end
 end
 
-ActiveRecord::Base.transaction do
-  Part.find_each do |part|
-    part.assemblies = Assembly.all.sample(rand(100..1000))
-  end
+Part.find_each do |part|
+  part.assemblies = Assembly.all.sample(rand(100..1000))
+end
 
-  Patient.find_each do |patient|
-    patient.physicians = Physician.all.sample(rand(100..1000))
-  end
+Patient.find_each do |patient|
+  patient.physicians = Physician.all.sample(rand(100..1000))
 end
