@@ -1,4 +1,4 @@
-LIMIT = 1000
+LIMIT = 10000
 
 def rand_time(from, to=Time.now)
   Time.at(rand_in_range(from.to_f, to.to_f))
